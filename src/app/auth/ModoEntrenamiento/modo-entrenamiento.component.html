@@ -74,10 +74,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 1:
+            Dominio 1:
           </div>
           <div style="font-size: 13px">
-            Planificación e implementación en toda la organización.
+            Proceso LEED.
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -85,10 +85,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 2:
+            Dominio 2:
           </div>
           <div style="font-size: 13px">
-            Medidas y gestión de procesos organizacionales.
+            Estrategias integradoras.
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -96,10 +96,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 3:
+            Dominio 3:
           </div>
           <div style="font-size: 13px">
-            Gestión de equipos.
+            Ubicación y Transporte.
           </div>
         </div>
       </div>
@@ -109,10 +109,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 4:
+            Dominio 4:
           </div>
           <div style="font-size: 13px">
-            Definir.
+            Sitios Sostenibles.
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -120,10 +120,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 5:
+            Dominio 5:
           </div>
           <div style="font-size: 13px">
-            Medir.
+            Eficiencia del agua.
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -131,10 +131,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 6:
+            Dominio 6:
           </div>
           <div style="font-size: 13px">
-            Analizar.
+            Energía y atmósfera.
           </div>
         </div>
       </div>
@@ -144,10 +144,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 7:
+            Dominio 7:
           </div>
           <div style="font-size: 13px">
-            Mejorar.
+            Materiales y recursos.
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -155,10 +155,10 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 8:
+            Dominio 8:
           </div>
           <div style="font-size: 13px">
-            Control.
+            Calidad ambiental interior.
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -166,16 +166,16 @@
             <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio9"></app-dona-puntos>
           </div>
           <div class="subtitulo">
-            Tema 9:
+            Dominio 9:
           </div>
           <div style="font-size: 13px">
-            Marco y metodologías de Design for Six Sigma (DFSS).
+            Entorno del proyecto y divulgación pública.
           </div>
         </div>
       </div>
     </div>
     <div class="card" *ngIf="Promedio>=70" style="margin-bottom: 10px; font-size: 13px;color:#706E81 ;background-color: #FFFDEE;border-radius: 5px;">
-      Tu puntaje está dentro de lo requerido para aprobar el modo entrenamiento. Conseguiste más de 550 puntos en el modo entrenamiento de la Certificación Six Sigma Black Belt - CSSBB.
+      Tu puntaje está dentro de lo requerido para aprobar el modo entrenamiento. Conseguiste más de 170 puntos en el modo entrenamiento de la Certificación LEED® AP BD+C.
     </div>
   </div>
 
@@ -192,7 +192,7 @@
         Instrucciones:
       </div>
       <div style="text-align: justify">
-        En este modo se te presentará 150 preguntas, con la estructura del examen de Certificación Six Sigma Black Belt - CSSBB. Se te mostrará la retroalimentación de cada pregunta luego de responderla, para que así puedas validar tu selección y fortalecer tus conocimientos.
+        En este modo se te presentarán 85 preguntas válidas, con la estructura del examen de Certificación LEED® AP BD+C. Se te mostrará la retroalimentación de cada pregunta luego de responderla, para que así puedas validar tu selección y fortalecer tus conocimientos.
       </div>
       <form (submit)="RegistrarExamen()" [formGroup]="userForm">
         <div class="form-horizontal" id="form-crearExamen">
@@ -200,7 +200,7 @@
             <div class="col-md-12" style="margin-top: 10px ">
               <div class="subtitulo">Nombre de la simulación:</div>
               <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
-                <input type="text" placeholder="Escriba el nombre de la simulacion" formControlName="NombreSimulacion" matInput />
+                <input type="text" placeholder="Escriba el nombre de la simulación" formControlName="NombreSimulacion" matInput />
                 <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
               </mat-form-field>
               </div>
@@ -224,7 +224,7 @@
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorLssbModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+              <div  *ngIf="item.idSimuladorLabcModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
                 <div class="row" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-9">
                     <div>
@@ -274,7 +274,7 @@
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorLssbModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+              <div  *ngIf="item.idSimuladorLabcModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
                 <div class="row" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-6">
                     <div>

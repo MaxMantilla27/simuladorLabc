@@ -4,7 +4,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Subject,takeUntil } from 'rxjs';
 import { AvatarDTO } from 'src/app/Models/AvatarDTO';
-import { RegistroLssbExamenDTO } from 'src/app/Models/ExamenDTO';
+import { RegistroLabcExamenDTO } from 'src/app/Models/ExamenDTO';
 import { AvatarService } from 'src/app/shared/Services/Avatar/avatar.service';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 import { SessionStorageService } from 'src/app/shared/Services/session-storage.service';
@@ -53,9 +53,9 @@ export class HomeComponent implements OnInit {
     skin: '',
     topC: ''
   };
-  public MejorExamenEnvio:RegistroLssbExamenDTO={
+  public MejorExamenEnvio:RegistroLabcExamenDTO={
     id:0,
-    idSimuladorLssbModo:0,
+    idSimuladorLabcModo:0,
     nombreExamen:'',
     tiempo:0,
     idAspNetUsers:'',
@@ -64,8 +64,8 @@ export class HomeComponent implements OnInit {
     puntaje:0,
     desempenio:0,
     percentil:0,
-    idSimuladorLssbTarea:0,
-    idSimuladorLssbDominio:0
+    idSimuladorLabcTarea:0,
+    idSimuladorLabcDominio:0
   }
   public ExamenesCompletados=0;
   public ExamenesActivos=0;

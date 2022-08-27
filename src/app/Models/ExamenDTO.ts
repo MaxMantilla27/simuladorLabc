@@ -1,8 +1,8 @@
-import { RegistroLssbExamenDetalleDTO } from "./ExamenDetalleDTO";
+import { RegistroLabcExamenDetalleDTO } from "./ExamenDetalleDTO";
 
-export interface RegistroLssbExamenDTO{
+export interface RegistroLabcExamenDTO{
   id:number,
-  idSimuladorLssbModo:number,
+  idSimuladorLabcModo:number,
   nombreExamen:string,
   tiempo:number,
   idAspNetUsers?:string,
@@ -11,12 +11,12 @@ export interface RegistroLssbExamenDTO{
   puntaje?:number,
   desempenio?:number,
   percentil?:number,
-  idSimuladorLssbTarea?:number,
-  idSimuladorLssbDominio:number
+  idSimuladorLabcTarea?:number,
+  idSimuladorLabcDominio:number
 }
-export interface RegistroLssbExamenRespuestaDTO{
+export interface RegistroLabcExamenRespuestaDTO{
   id:number,
-  idSimuladorLssbModo:number,
+  idSimuladorLabcModo:number,
   nombreExamen:string,
   tiempo:number,
   idAspNetUsers?:string,
@@ -25,7 +25,7 @@ export interface RegistroLssbExamenRespuestaDTO{
   puntaje?:number,
   desempenio?:number,
   percentil?:number,
-  respuestaDetalle: Array<RegistroLssbExamenDetalleDTO>,
+  respuestaDetalle: Array<RegistroLabcExamenDetalleDTO>,
   idSimuladorTipoRespuesta:number
 }
 export interface ExamenIntentoDTO{

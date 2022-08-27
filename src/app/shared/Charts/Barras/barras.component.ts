@@ -26,7 +26,7 @@ export class BarrasComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartPlugins = [DatalabelsPlugin];
   public barChartData: ChartData<'bar'> = {
-    labels: [ 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'],
+    labels: [ 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9'],
     datasets: [
       { data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
         label: 'Puntaje',
@@ -89,12 +89,17 @@ export class BarrasComponent implements OnInit {
     }
     //Datos
     this.barChartData={
-      labels: [ 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'],
+      labels: [ 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9'],
       datasets: [
         { data: [ this.ResultadoDominio1,
           this.ResultadoDominio2,
           this.ResultadoDominio3,
-          this.ResultadoDominio4],
+          this.ResultadoDominio4,
+          this.ResultadoDominio5,
+          this.ResultadoDominio6,
+          this.ResultadoDominio7,
+          this.ResultadoDominio8,
+          this.ResultadoDominio9],
           label: 'Puntaje (%)',
           backgroundColor: '#00C356',
           hoverBackgroundColor:[
@@ -132,7 +137,7 @@ export class BarrasComponent implements OnInit {
     }
     //Datos
     this.barChartData={
-      labels: [ 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'],
+      labels: [ 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9'],
       datasets: [
         { data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
           label: 'Puntaje',
