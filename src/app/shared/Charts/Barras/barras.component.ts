@@ -77,7 +77,7 @@ export class BarrasComponent implements OnInit {
       scales: {
         x: {},
         y: {
-          min: 10
+          min: 0
         }
       },
       plugins: {
@@ -122,7 +122,7 @@ export class BarrasComponent implements OnInit {
       scales: {
         x: {},
         y: {
-          min: 10
+          min: 0
         }
       },
       plugins: {
