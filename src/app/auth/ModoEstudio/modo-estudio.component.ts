@@ -56,6 +56,7 @@ export class ModoEstudioComponent implements OnInit {
   public ContSimulacionesCompletadas=0;
   public ResultadosPorDominio:any;
   public BotonResgistrar=false;
+  public Take=0;
   ngOnInit(): void {
     this.ListaDominioCombo();
     this.ListaExamenesPorModo();
@@ -91,19 +92,11 @@ export class ModoEstudioComponent implements OnInit {
   ListaExamenesPorModo(){
     this.TiempoTotalEstudio=0;
     this.SimulacionesInconclusas=0;
-    this._ExamenService.ListaExamenesPorModo(1).subscribe({
+    this._ExamenService.ResumenSimulacionesPorModo(1).subscribe({
       next:(x)=>{
-        this.ListaEstudio=x
-        this.CantMEstudio=x.length;
-        this.ListaEstudio.forEach((x:any)=>{
-          if(x.estadoExamen=="Finalizado"){
-            this.TiempoTotalEstudio=this.TiempoTotalEstudio+x.tiempo;
-          }
-          else{
-            this.SimulacionesInconclusas=this.SimulacionesInconclusas+1
-          }
-          this.SimulacionesTotales=this.SimulacionesTotales+1;
-        })
+        this.SimulacionesTotales=x.simulacionesTotales
+        this.SimulacionesInconclusas=x.simulacionesInconclusas
+        this.TiempoTotalEstudio=x.tiempoPromedio
       },
       complete: () => {
         this.Hora = Math.floor(this.TiempoTotalEstudio / 3600);
@@ -112,8 +105,6 @@ export class ModoEstudioComponent implements OnInit {
         this.MinutoMostrar = (this.Minuto < 10) ? '0' + this.Minuto : this.Minuto.toString();
       }
     });
-
-
   }
   ListaExamenesIncompletos(){
     this._ExamenService.ListaExamenesIncompletos().subscribe({
@@ -140,7 +131,7 @@ export class ModoEstudioComponent implements OnInit {
     })
   }
   ObtenerPromedioDominioPorModo(){
-    this._ExamenService.ObtenerPromedioDominioPorModo(1).subscribe({
+    this._ExamenService.ObtenerPromedioDominioPorModo(1,this.Take).subscribe({
       next:(x)=>{
         this.ResultadosPorDominio=x
 

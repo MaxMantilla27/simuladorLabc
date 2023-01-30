@@ -91,18 +91,9 @@ export class HomeComponent implements OnInit {
   public ResultadoDominio8=0;
   public ResultadoDominio9=0;
   public ContadorEntrenamiento=0;
-  public ResultadosPorDominio:ResultadoExamenPorDominioDTO={
-    dominio1:0,
-    dominio2:0,
-    dominio3:0,
-    dominio4:0,
-    dominio5:0,
-    dominio6:0,
-    dominio7:0,
-    dominio8:0,
-    dominio9:0,
-  }
+  public ResultadosPorDominio:any;
   public Dominio:any;
+  public Take=9;
 
   ngOnInit(): void {
 
@@ -126,7 +117,7 @@ export class HomeComponent implements OnInit {
     });
   }
   ObtenerMejorExamenPorUsuario(){
-    this._ExamenService.ObtenerMejorExamenPorUsuario(this.MejorExamenEnvio).subscribe({
+    this._ExamenService.ObtenerMejorExamenPorUsuario().subscribe({
       next:(x)=>{
         if(x!=null){
           this.DominioResultado=x.dominioResultado;
@@ -160,35 +151,34 @@ export class HomeComponent implements OnInit {
     })
   }
   ListaExamenesPorModo(){
-    this._ExamenService.ListaExamenesPorModo(1).subscribe({
+    this._ExamenService.ResumenSimulacionesPorModo(1).subscribe({
       next:(x)=>{
-        this.ListaEstudio=x
-        this.CantMEstudio=x.length;
+        this.CantMEstudio=x.simulacionesTotales;
       }
     });
-    this._ExamenService.ListaExamenesPorModo(2).subscribe({
+    this._ExamenService.ResumenSimulacionesPorModo(2).subscribe({
+      next:(x)=>{
+        this.CantMEntrenamiento=x.simulacionesTotales;
+      }
+    });
+    this._ExamenService.ResumenSimulacionesPorModo(3).subscribe({
+      next:(x)=>{
+        this.CantMExamen=x.simulacionesTotales;
+        this.ExamenesActivos=x.simulacionesInconclusas;
+        this.ExamenesCompletados=this.CantMExamen-this.ExamenesActivos
+      }
+    });
+    this._ExamenService.ListaExamenesPorModoResumen(2).subscribe({
       next:(x)=>{
         this.ListaEntrenamiento=x
-        this.CantMEntrenamiento=x.length;
       }
     });
-    this._ExamenService.ListaExamenesPorModo(3).subscribe({
-      next:(x)=>{
-        this.ListaExamen=x
-        this.ListaExamen.forEach((x:any)=>{
-          if(x.estadoExamen=="Finalizado")
-          this.ExamenesCompletados=this.ExamenesCompletados+1;
-        })
-        this.CantMExamen=x.length;
-        this.ExamenesActivos=this.CantMExamen-this.ExamenesCompletados;
-
-      }
-    })
   }
   ObtenerPromedioDominioPorModo(){
-    this._ExamenService.ObtenerPromedioDominioPorModo(1).subscribe({
+    this._ExamenService.ObtenerPromedioDominioPorModo(1,this.Take).subscribe({
       next:(x)=>{
         if(x!=null){
+          console.log(x)
           this.ResultadosPorDominio=x
         }
       }
