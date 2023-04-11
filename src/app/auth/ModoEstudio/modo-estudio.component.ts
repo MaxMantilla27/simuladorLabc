@@ -57,12 +57,15 @@ export class ModoEstudioComponent implements OnInit {
   public ResultadosPorDominio:any;
   public BotonResgistrar=false;
   public Take=0;
+  public ListaLogo: any = []
+
   ngOnInit(): void {
     this.ListaDominioCombo();
     this.ListaExamenesPorModo();
     this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
     this.ObtenerPromedioDominioPorModo();
+    this.ObtenerLogo();
   }
 
   RegistrarExamen(){
@@ -138,4 +141,14 @@ export class ModoEstudioComponent implements OnInit {
       }
     })
   }
+
+  ObtenerLogo(){
+    this._DominioService.ObtenerLogo().subscribe({
+      next:(x)=>{
+        this.ListaLogo = x;
+        console.log(this.ListaLogo)
+      }
+    })
+  }
+
 }

@@ -99,200 +99,32 @@
                 Selecciona el dominio que deseas estudiar:
               </div>
               <div class="row">
-                <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=1">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Proceso LEED.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Proceso LEED.
+                <ng-container *ngFor="let item of ListaLogo">
+                  <div *ngIf="DominioSeleccionado!= item.id" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=item.id">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=6">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img  style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento6.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Energía y atmósfera.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento6.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Energía y atmósfera.
+                 
+                  <div *ngIf="DominioSeleccionado == item.id " class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </ng-container>
               </div>
 
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=2">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Estrategias integradoras.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Estrategias integradoras.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=7">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento7.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Materiales y recursos.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento7.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Materiales y recursos.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=3">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento3.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Ubicación y Transporte.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento3.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Ubicación y Transporte.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=8" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=8">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento8.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Calidad ambiental interior.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==8" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento8.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Calidad ambiental interior.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=4">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Sitios Sostenibles.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Sitios Sostenibles.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=9" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=9">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento9.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Entorno del proyecto y divulgación pública.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==9" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento9.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Entorno del proyecto y divulgación pública.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=5">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento5.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Eficiencia del agua.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/LEED-AP-BD-C-Tento5.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Eficiencia del agua.
-                    </div>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
           <mat-error *ngIf="!userForm.invalid && DominioSeleccionado==0">Debe seleccionar un dominio para la simulación</mat-error>
