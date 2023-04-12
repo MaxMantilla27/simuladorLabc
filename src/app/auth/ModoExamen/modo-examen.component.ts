@@ -95,6 +95,7 @@ export class ModoExamenComponent implements OnInit {
     this.ListaExamenesConcluidos();
     this.ObtenerPromedioIntento();
     this.ObtenerPromedioDominioPorModo();
+    this.ObtenerPorcentaje();
   }
   RegistrarExamen(){
     if(this.userForm.valid){
@@ -157,7 +158,7 @@ export class ModoExamenComponent implements OnInit {
             this.ContSimulacionesCompletadas=x.length;
             this.ContEntrenamiento=this.ContEntrenamiento+1;
             this.PromedioDominio=this.PromedioDominio+y.desempenio;
-            if(y.desempenio>=70){
+            if(y.desempenio>=this.PorcentajeMinimoAprobacion){
               this.IntentosAprobados=this.IntentosAprobados+1
             }
             if(y.numeroIntento==1){
